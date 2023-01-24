@@ -3,14 +3,6 @@ resource "kubernetes_service" "redis_primary" {
     name = "redis_primary"
     namespace = "k8s-workshop"
   }
-  template {
-      metadata {
-        labels = {
-          app  = "redis"
-          role = "primary"
-          tier = "backend"
-        }
-      }
   spec {
     selector = {
       app = "redis"
@@ -24,5 +16,4 @@ resource "kubernetes_service" "redis_primary" {
 
     type = "LoadBalancer"
   }
-}
 }
