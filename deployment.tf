@@ -19,6 +19,7 @@ resource "kubernetes_deployment" "redis_primary" {
           image = "gcr.io/google_containers/redis:e2e"
           port {
             container_port = 6379
+          }
             resources {
               limits = {
                 cpu    = "100"
@@ -30,4 +31,3 @@ resource "kubernetes_deployment" "redis_primary" {
       }
     }
   }
-}
