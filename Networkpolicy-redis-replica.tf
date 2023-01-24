@@ -9,6 +9,7 @@ resource "kubernetes_network_policy" "redis-replica" {
       match_labels = {
         app = "redis"
       }
+      policy_types = ["Ingress", "Egress"]
     }
     ingress {
       ports {
@@ -23,7 +24,7 @@ resource "kubernetes_network_policy" "redis-replica" {
           }
         }
       }
-      policy_types = ["Ingress", "Egress"]
+
     }
   }
 }
