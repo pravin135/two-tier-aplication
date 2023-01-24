@@ -1,6 +1,6 @@
 resource "kubernetes_service" "redis_primary" {
   metadata {
-    name = "redis_primary"
+    name = "redis-primary"
     namespace = "k8s-workshop"
   }
   spec {
@@ -13,7 +13,5 @@ resource "kubernetes_service" "redis_primary" {
       port        = 6379
       target_port = 6379
     }
-
-    type = "LoadBalancer"
   }
 }
