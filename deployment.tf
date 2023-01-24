@@ -8,9 +8,9 @@ resource "kubernetes_deployment" "redis_primary" {
     template {
       metadata {
         labels = {
-          "app"  = "redis"
-          "role" = "primary"
-          "tier" = "backend"
+          app  = "redis"
+          role = "primary"
+          tier = "backend"
         }
       }
       spec {
