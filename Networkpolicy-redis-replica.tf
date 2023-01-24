@@ -8,6 +8,7 @@ resource "kubernetes_network_policy" "redis-replica" {
     pod_selector {
       match_labels = {
         app = "redis"
+      }
       policy_types = ["Ingress"]
     }
     from {
@@ -27,5 +28,4 @@ resource "kubernetes_network_policy" "redis-replica" {
 
     }
   }
-}
 }
