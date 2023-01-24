@@ -2,11 +2,11 @@ resource "kubernetes_service" "redis_replica" {
   metadata {
     name      = "redis-replica"
     namespace = "k8s-workshop"
-  labels {
-    app  = "redis"
+    labels = {
+      app  = "redis"
       role = "replica"
       tier = "backend"
-  }
+    }
   }
   spec {
     selector = {
@@ -15,7 +15,7 @@ resource "kubernetes_service" "redis_replica" {
       tier = "backend"
     }
     port {
-      port        = 6379
+      port = 6379
     }
   }
 }

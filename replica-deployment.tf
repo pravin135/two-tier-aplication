@@ -7,7 +7,7 @@ resource "kubernetes_deployment" "redis_replica" {
     replicas = 1
     selector {
       match_labels = {
-        app = "redis"
+        app  = "redis"
         role = "replica"
         tier = "backend"
       }
@@ -27,22 +27,22 @@ resource "kubernetes_deployment" "redis_replica" {
           port {
             container_port = 6379
           }
-            resources {
-              limits = {
-                cpu    = "100m"
-                memory = "100Mi"
-              }
+          resources {
+            limits = {
+              cpu    = "100m"
+              memory = "100Mi"
             }
-            env {
-                name = "GET_HOSTS_FROM"
-                value = "env"
-                }
-             env {
-                name = "REDIS_MASTER_SERVICE_HOST"
-                value = "redis-primary"
-            }
+          }
+          env {
+            name  = "GET_HOSTS_FROM"
+            value = "env"
+          }
+          env {
+            name  = "REDIS_MASTER_SERVICE_HOST"
+            value = "redis-primary"
           }
         }
       }
     }
   }
+}
