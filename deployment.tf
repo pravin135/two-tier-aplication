@@ -27,7 +27,7 @@ resource "kubernetes_deployment" "redis_primary" {
           }
             resources {
               limits = {
-                cpu    = "100"
+                cpu    = "100m"
                 memory = "100Mi"
               }
             }
