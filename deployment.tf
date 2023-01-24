@@ -25,14 +25,14 @@ resource "kubernetes_deployment" "redis_primary" {
           port {
             container_port = 6379
           }
-            resources {
-              limits = {
-                cpu    = "100m"
-                memory = "100Mi"
-              }
+          resources {
+            limits = {
+              cpu    = "100m"
+              memory = "100Mi"
             }
           }
         }
       }
     }
   }
+}

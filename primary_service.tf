@@ -1,11 +1,11 @@
 resource "kubernetes_service" "redis_primary" {
   metadata {
-    name = "redis-primary"
+    name      = "redis-primary"
     namespace = "k8s-workshop"
   }
   spec {
     selector = {
-      app = "redis"
+      app  = "redis"
       role = "primary"
       tier = "backend"
     }
