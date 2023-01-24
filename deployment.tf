@@ -1,4 +1,4 @@
-resource "kubernetes_deployment" "redis-primary" {
+resource "kubernetes_deployment" "redis_primary" {
   metadata {
     name      = "redis-primary"
     namespace = "k8s-workshop"
@@ -17,15 +17,14 @@ resource "kubernetes_deployment" "redis-primary" {
         container {
           name  = "redis"
           image = "gcr.io/google_containers/redis:e2e"
-
-          resources {
-            limits = {
-              cpu    = "100"
-              memory = "100Mi"
-            }
-          }
           port {
             container_port = 6379
+            resources {
+              limits = {
+                cpu    = "100"
+                memory = "100Mi"
+              }
+            }
           }
         }
       }
