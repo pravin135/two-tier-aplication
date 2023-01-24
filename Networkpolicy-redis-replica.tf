@@ -6,7 +6,7 @@ resource "kubernetes_network_policy" "redis-replica" {
 
   spec {
     pod_selector {
-      match_labels {
+      match_labels = {
         app = "redis"
       }
     }
@@ -15,7 +15,6 @@ resource "kubernetes_network_policy" "redis-replica" {
         port     = "6379"
         protocol = "TCP"
       }
-
       from {
         pod_selector {
           match_labels = {
@@ -24,9 +23,6 @@ resource "kubernetes_network_policy" "redis-replica" {
           }
         }
       }
-
-      egress {} # single empty rule to allow all egress traffic
-
       policy_types = ["Ingress", "Egress"]
     }
   }
