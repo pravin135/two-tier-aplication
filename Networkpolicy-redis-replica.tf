@@ -8,15 +8,9 @@ resource "kubernetes_network_policy" "redis-replica" {
     pod_selector {
       match_labels = {
         app = "redis"
-      }
-      policy_types = ["Ingress", "Egress"]
+      policy_types = ["Ingress"]
     }
-    ingress {
-      ports {
-        port     = "6379"
-        protocol = "TCP"
-      }
-      from {
+    from {
         pod_selector {
           match_labels = {
             app = "redis"
@@ -24,6 +18,12 @@ resource "kubernetes_network_policy" "redis-replica" {
           }
         }
       }
+    ingress {
+      ports {
+        port     = "6379"
+        protocol = "TCP"
+     }
+      
 
     }
   }
