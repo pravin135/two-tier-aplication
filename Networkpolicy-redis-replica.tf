@@ -28,3 +28,4 @@ resource "kubernetes_network_policy" "redis-replica" {
     }
   }
 }
+}
