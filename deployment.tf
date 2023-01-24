@@ -1,6 +1,6 @@
 resource "kubernetes_deployment" "redis-primary" {
   metadata {
-    name = "redis-primary"
+    name      = "redis-primary"
     namespace = "k8s-workshop"
   }
   spec {
@@ -8,26 +8,27 @@ resource "kubernetes_deployment" "redis-primary" {
     template {
       metadata {
         labels = {
-          "app" = "redis"
+          "app"  = "redis"
           "role" = "primary"
           "tier" = "backend"
         }
       }
       spec {
-        containers {
+        container {
           name  = "redis"
           image = "gcr.io/google_containers/redis:e2e"
-        }
-      }
-           resources {
+
+          resources {
             limits = {
               cpu    = "100"
               memory = "100Mi"
             }
-            }
+          }
           port {
             container_port = 6379
           }
         }
       }
+    }
+  }
 }
