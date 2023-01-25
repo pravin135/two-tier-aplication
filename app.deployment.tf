@@ -32,7 +32,7 @@ resource "kubernetes_deployment" "webapp" {
             items {
               key  = "val2"
               path = "secret_file"
-              mode = 511
+              mode = 0511
             }
           }
         }

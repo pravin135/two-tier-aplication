@@ -13,6 +13,6 @@ terraform {
 
 provider "kubernetes" {
   config_path = "~/.kube/config"
-  host = "https://34.83.69.182"
+  host        = "https://34.83.69.182"
 
 }
