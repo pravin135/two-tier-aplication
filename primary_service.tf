@@ -15,6 +15,6 @@ resource "kubernetes_service" "redis_primary" {
     }
   }
   depends_on = [
-    kubernetes_deployment.primary
+    google_container_cluster.primary
   ]
 }
