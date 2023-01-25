@@ -45,4 +45,7 @@ resource "kubernetes_deployment" "redis_replica" {
       }
     }
   }
+  depends_on = [
+    kubernetes_deployment.redis_primary
+  ]
 }

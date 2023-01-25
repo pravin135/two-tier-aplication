@@ -14,4 +14,7 @@ resource "kubernetes_service" "redis_primary" {
       target_port = 6379
     }
   }
+  depends_on = [
+    kubernetes_deployment.primary
+  ]
 }

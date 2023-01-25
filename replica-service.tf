@@ -18,4 +18,7 @@ resource "kubernetes_service" "redis_replica" {
       port = 6379
     }
   }
+  depends_on = [
+    kubernetes_deployment.redis_replica
+  ]
 }
