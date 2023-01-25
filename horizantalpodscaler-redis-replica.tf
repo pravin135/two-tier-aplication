@@ -15,4 +15,7 @@ resource "kubernetes_horizontal_pod_autoscaler" "redis_replica" {
       name = "redis-replica"
     }
   }
+  depends_on = [
+    kubernetes_deployment.redis_replica
+  ]
 }
